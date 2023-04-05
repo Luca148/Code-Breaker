@@ -1,16 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class NESW : MonoBehaviour
+public class CodeTerminal : MonoBehaviour
 {
-    [SerializeField] private string code = "1231423"; //Code zum öffnen 1231423
+    [SerializeField] private string code = "1846"; //Code zum öffnen 1231423
     [SerializeField] private string codeInput = ""; //Aktuelle Eingabe vom Spieler
-    [SerializeField] private float maxInput = 7; //Maximale Eingabe vom Spieler
+    [SerializeField] private float maxInput = 4; //Maximale Eingabe vom Spieler
     [SerializeField] private float currentInput = 0; //Aktuelle Eingabe vom Spieler
     [SerializeField] private bool isComplete = false; //Wurde das Rätsel gelöst?
 
-    [SerializeField] GameObject Jumpscare; //Jumpscare
+    [SerializeField] private TextMeshProUGUI codeText;
 
     private void Update()
     {
@@ -26,11 +27,25 @@ public class NESW : MonoBehaviour
                 Lose(); //Startet Funktion
             }
         }
+
+        UpdateUI();
+    }
+
+    public void TerminalInput(int input)
+    {
+        currentInput += 1;
+        codeInput += input;
     }
 
         private void Lose()
     {
         currentInput = 0; //Spielereingabe wird auf 0 gesetzt
         codeInput = ""; //Spielereingabe wird gelöscht
+        Debug.Log("Lose");
+    }
+
+    private void UpdateUI()
+    {
+        codeText.text = codeInput;
     }
 }
