@@ -45,13 +45,14 @@ public class PlayerController : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         playerCamera = GameObject.Find("Main Camera").transform;
-        mouseSensitivity = PlayerPrefs.GetFloat("sensitivity");
     }
     void Update()
     {
         UpdateMouseLook();
         UpdateMovement();
         JumpInput();
+
+        mouseSensitivity = PlayerPrefs.GetFloat("sensitivity");
 
         //lock cursor in middle of screen
         if (lockCursor)

@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    PlayerController pc;
+    [SerializeField] bool isThirdPerson = false;
+    public PlayerController pc;
+    public ThirdPersonController thirdPersonController;
 
     public static bool GameIsPaused = false;
     public bool isOptionsOpen = false;
@@ -18,8 +20,15 @@ public class PauseMenu : MonoBehaviour
 
     public void Start()
     {
-        pc = GameObject.Find("Player").GetComponent<PlayerController>();
-        fade = GameObject.Find("LevelLoader").GetComponent<Fade>();
+        if (isThirdPerson)
+        {
+            thirdPersonController = FindObjectOfType<ThirdPersonController>();
+        }
+        else
+        {
+            pc = FindObjectOfType<PlayerController>();
+        }
+        fade = FindObjectOfType<Fade>();
     }
 
     //if player can pause game and player hit esc then
@@ -56,8 +65,17 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;  //resume time
         GameIsPaused = false; //game is not paused
         pauseUI.SetActive(false); //disable ui
-        pc.disableInput = false; //enable input
-        pc.lockCursor = true; //lockcursor
+
+        if (isThirdPerson)
+        {
+            thirdPersonController.disableInput = false;
+            thirdPersonController.lockCursor = true;
+        }
+        else
+        {
+            pc.disableInput = false; //enable input
+            pc.lockCursor = true; //lockcursor
+        }
     }
 
     void Pause() //pause game
@@ -66,16 +84,33 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f; //stop time
         GameIsPaused = true; //game is paused
         pauseUI.SetActive(true); //active pause menu ui
-        pc.disableInput = true; //disable player input
-        pc.lockCursor = false; //unlock cursor
+
+        if (isThirdPerson)
+        {
+            thirdPersonController.disableInput = true;
+            thirdPersonController.lockCursor = false;
+        }
+        else
+        {
+            pc.disableInput = true; //enable input
+            pc.lockCursor = false; //lockcursor
+        }
     }
 
     public void LoadMenu() //load back to main menu
     {
         Time.timeScale = 1f; //resume time
         Cursor.visible = true; //enable cursor
-        pc.disableInput = true; //enable input
-        pc.lockCursor = false; //unlock cursor
+        if (isThirdPerson)
+        {
+            thirdPersonController.disableInput = true;
+            thirdPersonController.lockCursor = false;
+        }
+        else
+        {
+            pc.disableInput = true; //enable input
+            pc.lockCursor = false; //lockcursor
+        }
         StartCoroutine(fade.LevelLoader("MainMenu")); //laod main menu
     }
 
