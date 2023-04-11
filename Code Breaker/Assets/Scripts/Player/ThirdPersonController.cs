@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,9 @@ public class ThirdPersonController : MonoBehaviour
 {
     [Header("Essentials")]
     public Transform cam;
+    [SerializeField] private CinemachineFreeLook freeCam;
+    [SerializeField] [Range(.1f, 10)]private float sensitivity = 1;
+    [SerializeField] private float sensitivityScale = 100;
     CharacterController controller;
     float turnSmoothTime = .1f;
     float turnSmoothVelocity;
@@ -26,13 +30,18 @@ public class ThirdPersonController : MonoBehaviour
     private void Start()
     {
         controller = GetComponent<CharacterController>();
+        freeCam = FindObjectOfType<CinemachineFreeLook>();
         anim = GetComponentInChildren<Animator>();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        sensitivity = PlayerPrefs.GetFloat("sensitivity");
     }
 
     void Update()
     {
+        freeCam.m_XAxis.m_MaxSpeed = 2 * sensitivity * sensitivityScale;
+        freeCam.m_YAxis.m_MaxSpeed = sensitivity / 33 * sensitivityScale;
+
         isGrounded = Physics.CheckSphere(transform.position, .2f, 1);
         anim.SetBool("IsGrounded", isGrounded);
 

@@ -10,7 +10,7 @@ using Unity.VisualScripting;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] Transform playerCamera = null;
-    [SerializeField] [Range(0, 10)]float mouseSensitivity = 3.5f; 
+    [SerializeField] [Range(0.1f, 10)]float mouseSensitivity = 3.5f; 
     [SerializeField] public float walkSpeed = 4.0f; 
     [SerializeField] public float resetwalkSpeed = 4.0f; 
     [SerializeField] public float sprintSpeed = 8.0f; 
@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         playerCamera = GameObject.Find("Main Camera").transform;
+        mouseSensitivity = PlayerPrefs.GetFloat("sensitivity");
     }
     void Update()
     {
