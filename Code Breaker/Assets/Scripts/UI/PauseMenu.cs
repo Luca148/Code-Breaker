@@ -130,6 +130,6 @@ public class PauseMenu : MonoBehaviour
 
     public void SetFullscreen(bool isFullscreen) //toggle fullscreen of the game 
     {
-        Screen.fullScreen = isFullscreen; //change fullscreen mode with bool of button
+        Screen.fullScreen = isFullscreen; //change fullscreen mode with bool of button*
     }
 }
