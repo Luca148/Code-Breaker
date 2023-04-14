@@ -41,10 +41,20 @@ public class PlayerController : MonoBehaviour
     Vector2 currentDir = Vector2.zero;
     Vector2 currentDirVelocity = Vector2.zero;
 
+    /*
+    Save Position
+    PlayerPrefs.SetFloat("PlayerX", transform.position.x);
+    PlayerPrefs.SetFloat("PlayerY", transform.position.y);
+    PlayerPrefs.SetFloat("PlayerZ", transform.position.z);
+    */
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
         playerCamera = GameObject.Find("Main Camera").transform;
+
+        transform.position = new Vector3(PlayerPrefs.GetFloat("PlayerX"), PlayerPrefs.GetFloat("PlayerY"), PlayerPrefs.GetFloat("PlayerZ"));
+
     }
     void Update()
     {

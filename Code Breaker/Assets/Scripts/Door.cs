@@ -42,12 +42,10 @@ public class Door : MonoBehaviour
                 }
 
                 AnimationCoroutine = StartCoroutine(DoSlidingOpen());
-                Debug.Log("Open");
             }
             else
             {
                 AnimationCoroutine = StartCoroutine(DoSlidingClose());
-                Debug.Log("Close");
             }
         }
     }

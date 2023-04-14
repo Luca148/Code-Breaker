@@ -16,6 +16,7 @@ public class ThirdPersonController : MonoBehaviour
     Animator anim;
     public bool lockCursor = true;
     public bool disableInput = false;
+    public Vector3 spawn;
 
     [Header("Movement")]
     public float moveSpeed;
@@ -35,6 +36,7 @@ public class ThirdPersonController : MonoBehaviour
         controller = GetComponent<CharacterController>();
         freeCam = FindObjectOfType<CinemachineFreeLook>();
         anim = GetComponentInChildren<Animator>();
+        spawn = transform.position;
     }
 
     void Update()
@@ -121,6 +123,15 @@ public class ThirdPersonController : MonoBehaviour
             }
 
             controller.Move(velocity * Time.deltaTime);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("ResetPlayer"))
+        {
+            transform.position = spawn;
+            Debug.Log("Reset");
         }
     }
 }
