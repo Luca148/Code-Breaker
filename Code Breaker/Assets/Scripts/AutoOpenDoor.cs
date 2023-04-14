@@ -15,10 +15,13 @@ public class AutoOpenDoor : MonoBehaviour
     {
         if (other.TryGetComponent<CharacterController>(out CharacterController controller))
         {
-            if (!door.IsOpen)
+            if (door != null)
             {
-                door.Open(other.transform.position);
-                Debug.Log("Open");
+                if (!door.IsOpen)
+                {
+                    door.Open(other.transform.position);
+                    Debug.Log("Open");
+                }
             }
         }
     }
@@ -27,10 +30,13 @@ public class AutoOpenDoor : MonoBehaviour
     {
         if (other.TryGetComponent<CharacterController>(out CharacterController controller))
         {
-            if (door.IsOpen)
+            if (door != null)
             {
-                door.Close();
-                Debug.Log("Close");
+                if (door.IsOpen)
+                {
+                    door.Close();
+                    Debug.Log("Close");
+                }
             }
         }
     }
