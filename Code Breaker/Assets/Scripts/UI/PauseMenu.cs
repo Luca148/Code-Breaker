@@ -7,6 +7,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] bool isThirdPerson = false;
     public PlayerController pc;
     public ThirdPersonController thirdPersonController;
+    public GameObject cam;
 
     public static bool GameIsPaused = false;
     public bool isOptionsOpen = false;
@@ -66,6 +67,11 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = false; //game is not paused
         pauseUI.SetActive(false); //disable ui
 
+        if(cam != null)
+        {
+            cam.SetActive(true);
+        }
+
         if (isThirdPerson)
         {
             thirdPersonController.disableInput = false;
@@ -84,6 +90,11 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f; //stop time
         GameIsPaused = true; //game is paused
         pauseUI.SetActive(true); //active pause menu ui
+
+        if (cam != null)
+        {
+            cam.SetActive(false);
+        }
 
         if (isThirdPerson)
         {

@@ -52,16 +52,17 @@ public class ThirdPersonController : MonoBehaviour
             Cursor.visible = true;
         }
 
-        sensitivity = PlayerPrefs.GetFloat("sensitivity");
-
-        freeCam.m_XAxis.m_MaxSpeed = 2 * sensitivity * sensitivityScale;
-        freeCam.m_YAxis.m_MaxSpeed = sensitivity / 33 * sensitivityScale;
-
         isGrounded = Physics.CheckSphere(transform.position, .2f, 1);
         anim.SetBool("IsGrounded", isGrounded);
 
         if (!disableInput)
         {
+
+            sensitivity = PlayerPrefs.GetFloat("sensitivity");
+
+            freeCam.m_XAxis.m_MaxSpeed = 2 * sensitivity * sensitivityScale;
+            freeCam.m_YAxis.m_MaxSpeed = sensitivity / 33 * sensitivityScale;
+
             if (isGrounded && velocity.y < 0)
             {
                 velocity.y = -1;
@@ -130,7 +131,9 @@ public class ThirdPersonController : MonoBehaviour
     {
         if (other.CompareTag("ResetPlayer"))
         {
+            disableInput = true;
             transform.position = spawn;
+            disableInput = false;
             Debug.Log("Reset");
         }
     }

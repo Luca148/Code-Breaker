@@ -46,15 +46,15 @@ public class PlayerController : MonoBehaviour
     PlayerPrefs.SetFloat("PlayerX", transform.position.x);
     PlayerPrefs.SetFloat("PlayerY", transform.position.y);
     PlayerPrefs.SetFloat("PlayerZ", transform.position.z);
+
+    Load Position
+    transform.position = new Vector3(PlayerPrefs.GetFloat("PlayerX"), PlayerPrefs.GetFloat("PlayerY"), PlayerPrefs.GetFloat("PlayerZ"));
     */
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
         playerCamera = GameObject.Find("Main Camera").transform;
-
-        transform.position = new Vector3(PlayerPrefs.GetFloat("PlayerX"), PlayerPrefs.GetFloat("PlayerY"), PlayerPrefs.GetFloat("PlayerZ"));
-
     }
     void Update()
     {
