@@ -8,7 +8,7 @@ public class AutoOpenDoor : MonoBehaviour
 
     private void Start()
     {
-        door = GetComponent<Door>();
+        door = GetComponentInChildren<Door>();
     }
 
     private void OnTriggerEnter(Collider other)
