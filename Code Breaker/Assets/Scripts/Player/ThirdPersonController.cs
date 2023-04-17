@@ -134,7 +134,6 @@ public class ThirdPersonController : MonoBehaviour
             disableInput = true;
             transform.position = spawn;
             disableInput = false;
-            Debug.Log("Reset");
         }
     }
 }

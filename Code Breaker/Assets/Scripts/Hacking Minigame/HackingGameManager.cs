@@ -5,18 +5,20 @@ using UnityEngine;
 public class HackingGameManager : MonoBehaviour
 {
     private Fade fade;
+    private HackingTerminal terminal;
     [SerializeField] private string LevelName;
 
     private void Start()
     {
         fade = FindObjectOfType<Fade>();
+        terminal = FindObjectOfType<HackingTerminal>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            StartCoroutine(fade.LevelLoader(LevelName));
+            terminal.StartEndAnim();
         }
     }
 }
