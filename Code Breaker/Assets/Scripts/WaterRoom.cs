@@ -54,6 +54,7 @@ public class WaterRoom : MonoBehaviour
             time += Time.deltaTime * SlideSpeed * SlideSpeedMultiplier;
         }
 
+        water.SetActive(false);
         door1.IsLocked = false;
         door2.IsLocked = false;
         door2.Open(transform.position);
