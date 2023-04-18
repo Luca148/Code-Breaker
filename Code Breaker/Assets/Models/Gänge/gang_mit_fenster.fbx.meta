@@ -3,7 +3,17 @@ guid: 78accbb3721759943a34cd3e5e675d15
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dekoration
+    second: {fileID: 2100000, guid: 73f90b464dfaab64ea2fef20941ea27b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wand_boden_decke_mat
+    second: {fileID: 2100000, guid: 898e2bf667ec25b4eac632eb72a6df9a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
