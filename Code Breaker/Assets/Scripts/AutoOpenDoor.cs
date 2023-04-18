@@ -5,6 +5,9 @@ using UnityEngine;
 public class AutoOpenDoor : MonoBehaviour
 {
     Door door;
+    [SerializeField] AudioClip doorOpen;
+    [SerializeField] AudioClip doorClose;
+    [SerializeField] AudioSource source;
 
     private void Start()
     {
@@ -17,10 +20,10 @@ public class AutoOpenDoor : MonoBehaviour
         {
             if (door != null)
             {
-                if (!door.IsOpen)
+                if (!door.IsOpen && !door.IsLocked)
                 {
                     door.Open(other.transform.position);
-                    Debug.Log("Open");
+                    source.PlayOneShot(doorOpen);
                 }
             }
         }
@@ -32,10 +35,10 @@ public class AutoOpenDoor : MonoBehaviour
         {
             if (door != null)
             {
-                if (door.IsOpen)
+                if (door.IsOpen && !door.IsLocked)
                 {
                     door.Close();
-                    Debug.Log("Close");
+                    source.PlayOneShot(doorClose);
                 }
             }
         }

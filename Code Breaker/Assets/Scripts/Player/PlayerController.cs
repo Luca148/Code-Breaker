@@ -34,6 +34,19 @@ public class PlayerController : MonoBehaviour
     Vector2 targetDir;
     [SerializeField] LayerMask lmask; //ground
 
+    [Header("Sound")]
+    [SerializeField] float baseStepSpeed = 0.5f;
+    [SerializeField] float crouchStepMultipler = 1.5f;
+    [SerializeField] float sprintStepMultipler = 0.6f;
+    [SerializeField] AudioSource footstepAudio = default;
+    [SerializeField] AudioClip[] stationAudio = default;
+    private float footstepTimer = 0;
+
+    //get offset for footstep sound
+    //when player is sprinting: baseStepSpeed * sprintStepMultipler
+    //when player is walking the its just he baseStepSpeed
+    private float GetCurrentOffset => /*isCrouching ? baseStepSpeed * crouchStepMultipler :*/ isSprinting ? baseStepSpeed * sprintStepMultipler : baseStepSpeed;
+
     float cameraPitch = 0.0f;
     float velocityY = 0.0f;
     CharacterController controller = null;
@@ -80,6 +93,31 @@ public class PlayerController : MonoBehaviour
         //when player is not grounded or not moving return
         if (!controller.isGrounded) return;
         if (targetDir == Vector2.zero) return;
+
+        //this calculates the time between footsteps
+        //first the footstepTimer gets subtacted by time then
+        //raycast for ground and tag
+        //if ray cast hits ground then play according sound
+        //after that reset footstepTimer
+        footstepTimer -= Time.deltaTime;
+
+        if (footstepTimer <= 0)
+        {
+            if (Physics.Raycast(playerCamera.transform.position, Vector3.down, out RaycastHit hit, 2.8f, lmask))
+            {
+                switch (hit.collider.tag)
+                {
+                    case "Ground/Station":
+                        footstepAudio.PlayOneShot(stationAudio[Random.Range(0, stationAudio.Length)]);
+                        break;
+                    default:
+                        footstepAudio.PlayOneShot(stationAudio[Random.Range(0, stationAudio.Length)]);
+                        break;
+                }
+            }
+
+            footstepTimer = GetCurrentOffset;
+        }
     }
 
     void UpdateMouseLook() //move camera with mouse

@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 6730138617792259946}
   - component: {fileID: 6730847987853263386}
   - component: {fileID: 8027933912754214955}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Area Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6730138617792259946
 Transform:
@@ -228,12 +228,12 @@ GameObject:
   - component: {fileID: 7254105800115220908}
   - component: {fileID: 3149786024694672834}
   - component: {fileID: 8875436447236673725}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Area Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7254105800115220908
 Transform:
@@ -443,12 +443,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2627944361234172118}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pre_Gang Fenster
-  m_TagString: Untagged
+  m_TagString: Ground/Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2627944361234172118
 Transform:
@@ -540,6 +540,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: gang_mit_fenster
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 78accbb3721759943a34cd3e5e675d15,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 78accbb3721759943a34cd3e5e675d15,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

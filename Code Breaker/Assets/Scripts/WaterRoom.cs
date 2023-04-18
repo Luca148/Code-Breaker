@@ -41,8 +41,11 @@ public class WaterRoom : MonoBehaviour
             yield return null;
             time += Time.deltaTime * SlideSpeed;
         }
-        GameOverUI.SetActive(true);
-        pm.FreezeGame();
+        if (startWater)
+        {
+            GameOverUI.SetActive(true);
+            pm.FreezeGame();
+        }
     }
 
     private IEnumerator LowerWater()
