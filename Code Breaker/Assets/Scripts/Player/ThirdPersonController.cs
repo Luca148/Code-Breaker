@@ -17,6 +17,7 @@ public class ThirdPersonController : MonoBehaviour
     public bool lockCursor = true;
     public bool disableInput = false;
     public Vector3 spawn;
+    private PauseMenu P_menu;
 
     [Header("Movement")]
     public float moveSpeed;
@@ -32,9 +33,12 @@ public class ThirdPersonController : MonoBehaviour
 
     private void Start()
     {
+        P_menu = FindObjectOfType<PauseMenu>();
+        P_menu.thirdPersonController = this;
+        freeCam = FindObjectOfType<CinemachineFreeLook>();
+        P_menu.cam = freeCam.gameObject;
 
         controller = GetComponent<CharacterController>();
-        freeCam = FindObjectOfType<CinemachineFreeLook>();
         anim = GetComponentInChildren<Animator>();
         spawn = transform.position;
     }

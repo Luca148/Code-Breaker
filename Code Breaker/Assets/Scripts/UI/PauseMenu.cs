@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] bool isThirdPerson = false;
     public PlayerController pc;
     public ThirdPersonController thirdPersonController;
     public GameObject cam;
@@ -21,14 +21,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Start()
     {
-        if (isThirdPerson)
-        {
-            thirdPersonController = FindObjectOfType<ThirdPersonController>();
-        }
-        else
-        {
-            pc = FindObjectOfType<PlayerController>();
-        }
+        pc = FindObjectOfType<PlayerController>();
         fade = FindObjectOfType<Fade>();
     }
 
@@ -72,16 +65,13 @@ public class PauseMenu : MonoBehaviour
             cam.SetActive(true);
         }
 
-        if (isThirdPerson)
+        if (thirdPersonController != null)
         {
             thirdPersonController.disableInput = false;
             thirdPersonController.lockCursor = true;
         }
-        else
-        {
-            pc.disableInput = false; //enable input
-            pc.lockCursor = true; //lockcursor
-        }
+        pc.disableInput = false; //enable input
+        pc.lockCursor = true; //lockcursor
     }
 
     void Pause() //pause game
@@ -96,33 +86,46 @@ public class PauseMenu : MonoBehaviour
             cam.SetActive(false);
         }
 
-        if (isThirdPerson)
+        if (thirdPersonController != null)
         {
             thirdPersonController.disableInput = true;
             thirdPersonController.lockCursor = false;
         }
-        else
-        {
-            pc.disableInput = true; //enable input
-            pc.lockCursor = false; //lockcursor
-        }
+        pc.disableInput = true; //enable input
+        pc.lockCursor = false; //lockcursor
     }
 
     public void LoadMenu() //load back to main menu
     {
         Time.timeScale = 1f; //resume time
         Cursor.visible = true; //enable cursor
-        if (isThirdPerson)
+        if (thirdPersonController != null)
         {
             thirdPersonController.disableInput = true;
             thirdPersonController.lockCursor = false;
         }
-        else
-        {
-            pc.disableInput = true; //enable input
-            pc.lockCursor = false; //lockcursor
-        }
+        pc.disableInput = true; //enable input
+        pc.lockCursor = false; //lockcursor
         StartCoroutine(fade.LevelLoader("MainMenu")); //laod main menu
+    }
+
+    public void FreezeGame()
+    {
+        Cursor.visible = true; //enable cursor
+        Time.timeScale = 0f; //stop time
+
+        if (cam != null)
+        {
+            cam.SetActive(false);
+        }
+
+        if (thirdPersonController != null)
+        {
+            thirdPersonController.disableInput = true;
+            thirdPersonController.lockCursor = false;
+        }
+        pc.disableInput = true; //enable input
+        pc.lockCursor = false; //lockcursor
     }
 
     public void openOptions() //show options
@@ -137,6 +140,21 @@ public class PauseMenu : MonoBehaviour
         optionsUI.SetActive(false); //deactivate options ui
         pauseUI.SetActive(true); //active pause ui
         isOptionsOpen = false; //options are closed
+    }
+
+    public void ResetScene()
+    {
+        Time.timeScale = 1f; //resume time
+        Cursor.visible = true; //enable cursor
+        if (thirdPersonController != null)
+        {
+            thirdPersonController.disableInput = true;
+            thirdPersonController.lockCursor = false;
+        }
+        pc.disableInput = true; //enable input
+        pc.lockCursor = false; //lockcursor
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.UnloadSceneAsync("Hacking Test 1");
     }
 
     public void SetFullscreen(bool isFullscreen) //toggle fullscreen of the game 

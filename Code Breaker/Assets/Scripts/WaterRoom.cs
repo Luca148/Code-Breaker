@@ -7,6 +7,8 @@ using UnityEngine.UIElements;
 public class WaterRoom : MonoBehaviour
 {
     [SerializeField] private GameObject water;
+    [SerializeField] private GameObject GameOverUI;
+    private PauseMenu pm;
 
     [Header("Settings")]
     [SerializeField] private Vector3 StartPosition;
@@ -24,6 +26,7 @@ public class WaterRoom : MonoBehaviour
     private void Start()
     {
         bCollider = GetComponent<BoxCollider>();
+        pm = FindObjectOfType<PauseMenu>();
     }
 
     private IEnumerator RiseWater()
@@ -38,7 +41,8 @@ public class WaterRoom : MonoBehaviour
             yield return null;
             time += Time.deltaTime * SlideSpeed;
         }
-        //KILL PLAYER
+        GameOverUI.SetActive(true);
+        pm.FreezeGame();
     }
 
     private IEnumerator LowerWater()
