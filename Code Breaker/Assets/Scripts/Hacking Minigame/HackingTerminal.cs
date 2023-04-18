@@ -1,21 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class HackingTerminal : MonoBehaviour
 {
-    private Fade fade;
+    public UnityEvent Trigger;
+
     [SerializeField] private string LevelName;
     [SerializeField] private GameObject HackingDevice;
     [SerializeField] private GameObject Crosshair;
     private PlayerController pc;
-
+    [SerializeField] private Animator anim;
 
     private void Start()
     {
-        fade = FindObjectOfType<Fade>();
         pc = FindObjectOfType<PlayerController>();
+    }
+
+    public void StartEndAnim()
+    {
+        anim.SetTrigger("End");
+    }
+
+    public void FinishedMinigame()
+    {
+        SceneManager.UnloadSceneAsync(LevelName);
+        pc.enabled = true;
+        HackingDevice.SetActive(false);
+        Crosshair.SetActive(true);
+
+        Trigger.Invoke();
     }
 
     public void StartMinigame()
