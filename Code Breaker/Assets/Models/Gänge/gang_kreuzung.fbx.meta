@@ -3,7 +3,22 @@ guid: 29bd5d4b30b1eb94bb5396a000d105bb
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dekoration
+    second: {fileID: 2100000, guid: f50c4de3155893240962f150ae3d7678, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: dec2a41ebe97bd2499602355f4242034, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wand_boden_decke_mat
+    second: {fileID: 2100000, guid: 2a43c6aa6cf075b458c031ae9e330c0f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
