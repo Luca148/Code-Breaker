@@ -42,7 +42,7 @@ public class HackingTerminal : MonoBehaviour
         pc.enabled = false;
         HackingDevice.SetActive(true);
         Crosshair.SetActive(false);
-
+        FindObjectOfType<AudioManager>().PlayAudio("HackGame_Start");
         SceneManager.LoadSceneAsync(LevelName, LoadSceneMode.Additive);
     }
 }

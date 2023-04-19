@@ -19,6 +19,7 @@ public class HackingGameManager : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             terminal.StartEndAnim();
+            FindObjectOfType<AudioManager>().PlayAudio("HackGame_Finish");
         }
     }
 }

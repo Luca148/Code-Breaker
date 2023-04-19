@@ -5,9 +5,9 @@ using UnityEngine;
 public class AutoOpenDoor : MonoBehaviour
 {
     Door door;
-    [SerializeField] AudioClip doorOpen;
+    public AudioClip doorOpen;
     [SerializeField] AudioClip doorClose;
-    [SerializeField] AudioSource source;
+    public AudioSource source;
 
     private void Start()
     {

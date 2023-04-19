@@ -6,6 +6,10 @@ public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds; //array of sounds
 
+    /*
+    FindObjectOfType<AudioManager>().PlayAudio("test_sound");
+    */
+
     void Awake()
     {
         foreach (Sound s in sounds) //foreach object in array
