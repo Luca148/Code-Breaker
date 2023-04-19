@@ -1,6 +1,7 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ThirdPersonController : MonoBehaviour
@@ -18,6 +19,10 @@ public class ThirdPersonController : MonoBehaviour
     public bool disableInput = false;
     public Vector3 spawn;
     private PauseMenu P_menu;
+
+    [Header("Audio")]
+    [SerializeField] private AudioSource source;
+    [SerializeField] AudioClip[] jumpSounds = default;
 
     [Header("Movement")]
     public float moveSpeed;
@@ -110,6 +115,7 @@ public class ThirdPersonController : MonoBehaviour
                 {
                     isJumping = true;
                     anim.SetTrigger("IsJumping");
+                    source.PlayOneShot(jumpSounds[Random.Range(0, jumpSounds.Length)]);
                 }
             }
 
@@ -135,6 +141,7 @@ public class ThirdPersonController : MonoBehaviour
     {
         if (other.CompareTag("ResetPlayer"))
         {
+            FindObjectOfType<AudioManager>().PlayAudio("HackGame_Fail");
             disableInput = true;
             transform.position = spawn;
             disableInput = false;
