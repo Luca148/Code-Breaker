@@ -19,9 +19,16 @@ public class WaterRoom : MonoBehaviour
     private bool startWater = false;
     private BoxCollider bCollider;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource waterAudioSource;
+    [SerializeField] private AudioClip RoomFill;
+    [SerializeField] private AudioClip RoomDrain;
+    [SerializeField] private AudioClip RoomFinish;
+
     [Header("Doors")]
     [SerializeField] private Door door1;
     [SerializeField] private Door door2;
+    [SerializeField] private AutoOpenDoor autoDoor2;
 
     private void Start()
     {
@@ -33,6 +40,8 @@ public class WaterRoom : MonoBehaviour
     {
         Vector3 endPosition = StartPosition + SlideAmount * SlideDirection;
         Vector3 startPosition = water.transform.position;
+
+        waterAudioSource.PlayOneShot(RoomFill);
 
         float time = 0;
         while (time < 1 && startWater)
@@ -53,6 +62,8 @@ public class WaterRoom : MonoBehaviour
         Vector3 endPosition = StartPosition;
         Vector3 startPosition = water.transform.position;
 
+        waterAudioSource.PlayOneShot(RoomDrain);
+
         float time = 0;
         while (time < 1)
         {
@@ -60,11 +71,13 @@ public class WaterRoom : MonoBehaviour
             yield return null;
             time += Time.deltaTime * SlideSpeed * SlideSpeedMultiplier;
         }
-
+        waterAudioSource.Stop();
+        waterAudioSource.PlayOneShot(RoomFinish);
         water.SetActive(false);
         door1.IsLocked = false;
         door2.IsLocked = false;
         door2.Open(transform.position);
+        autoDoor2.source.PlayOneShot(autoDoor2.doorOpen);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -92,5 +105,7 @@ public class WaterRoom : MonoBehaviour
         water.SetActive(true);
         StartPosition = water.transform.position;
         StartCoroutine(RiseWater());
+        var collider = GetComponent<BoxCollider>();
+        collider.enabled = false;
     }
 }
