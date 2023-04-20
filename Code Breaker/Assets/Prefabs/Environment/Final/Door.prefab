@@ -69,8 +69,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5, y: 8.85354, z: 29.428152}
-  m_Center: {x: 0.5, y: -0.4267702, z: 0.500001}
+  m_Size: {x: 5, y: 5, z: 8}
+  m_Center: {x: 0, y: 2.5, z: 0}
 --- !u!82 &5775619366252483054
 AudioSource:
   m_ObjectHideFlags: 0
@@ -84,7 +84,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1.5
   Loop: 0
   Mute: 0
