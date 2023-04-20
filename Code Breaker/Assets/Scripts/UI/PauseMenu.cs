@@ -19,10 +19,14 @@ public class PauseMenu : MonoBehaviour
 
     [SerializeField] private Fade fade;
 
+    [SerializeField] private AudioSource[] audioSources;
+
     public void Start()
     {
         pc = FindObjectOfType<PlayerController>();
         fade = FindObjectOfType<Fade>();
+
+        audioSources = FindObjectsOfType<AudioSource>();
     }
 
     //if player can pause game and player hit esc then
@@ -72,6 +76,16 @@ public class PauseMenu : MonoBehaviour
         }
         pc.disableInput = false; //enable input
         pc.lockCursor = true; //lockcursor
+
+        ResumeAudio();
+    }
+
+    private void ResumeAudio()
+    {
+        for(int i = 0; i < audioSources.Length; i++)
+        {
+            audioSources[i].UnPause();
+        }
     }
 
     void Pause() //pause game
@@ -93,6 +107,16 @@ public class PauseMenu : MonoBehaviour
         }
         pc.disableInput = true; //enable input
         pc.lockCursor = false; //lockcursor
+
+        PauseAudio();
+    }
+
+    private void PauseAudio()
+    {
+        for (int i = 0; i < audioSources.Length; i++)
+        {
+            audioSources[i].Pause();
+        }
     }
 
     public void LoadMenu() //load back to main menu
