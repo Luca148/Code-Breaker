@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ResetPlayer
   - Ground/Station
+  - Light
   layers:
   - Default
   - TransparentFX
