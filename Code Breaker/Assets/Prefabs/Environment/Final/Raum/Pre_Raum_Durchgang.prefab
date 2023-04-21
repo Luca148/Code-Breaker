@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1317182999182376615}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pre_Raum_Durchgang
-  m_TagString: Untagged
+  m_TagString: Ground/Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 1975051179328082672}
   - {fileID: 8222387458617730449}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1853199049173199632
 PrefabInstance:
@@ -102,6 +102,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pre_Raum_Mitte (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360285154950999867, guid: f31c0e0fe13a63e418a0938c8154830b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -182,6 +187,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pre_Raum_Mitte
       objectReference: {fileID: 0}
+    - target: {fileID: 8360285154950999867, guid: f31c0e0fe13a63e418a0938c8154830b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -261,6 +271,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: durchgang
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ee3d0c5715050834bb56f3f2da46580d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ee3d0c5715050834bb56f3f2da46580d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground/Station
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ee3d0c5715050834bb56f3f2da46580d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -280,6 +305,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1317182999182376615}
     m_Modifications:
+    - target: {fileID: 150731729035359177, guid: c4e345c0aca98414481481f555a03723,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2145909220529026338, guid: c4e345c0aca98414481481f555a03723,
         type: 3}
       propertyPath: m_RootOrder
@@ -335,10 +365,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8283213166627649481, guid: c4e345c0aca98414481481f555a03723,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8839712203103104358, guid: c4e345c0aca98414481481f555a03723,
         type: 3}
       propertyPath: m_Name
       value: Door_Durchgang
+      objectReference: {fileID: 0}
+    - target: {fileID: 8839712203103104358, guid: c4e345c0aca98414481481f555a03723,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8991181272800955570, guid: c4e345c0aca98414481481f555a03723,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

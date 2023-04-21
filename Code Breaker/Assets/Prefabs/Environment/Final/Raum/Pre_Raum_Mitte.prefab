@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 206928234999085536}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pre_Raum_Mitte
-  m_TagString: Untagged
+  m_TagString: Ground/Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &206928234999085536
 Transform:
@@ -30,7 +30,7 @@ Transform:
   m_Children:
   - {fileID: 7408668143758013650}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &7015017303323415353
 PrefabInstance:
@@ -99,6 +99,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: raum_mitte (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a2e8a850963486f4caf92e8f9acd85f7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a2e8a850963486f4caf92e8f9acd85f7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground/Station
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a2e8a850963486f4caf92e8f9acd85f7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
