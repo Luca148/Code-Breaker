@@ -16,6 +16,11 @@ public class EmergencyLight : MonoBehaviour
     [SerializeField] private Color resetMaterialColor;
     [SerializeField] private Color resetRoomColor;
 
+    private void Start()
+    {
+        DisableEmergencyLight();
+    }
+
     public void EnableEmergencyLight()
     {
         for (int i = 0; i < areaLights.Length; i++)
