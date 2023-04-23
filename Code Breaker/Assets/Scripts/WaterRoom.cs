@@ -18,6 +18,7 @@ public class WaterRoom : MonoBehaviour
     [SerializeField] private float SlideSpeedMultiplier = 5;
     private bool startWater = false;
     private BoxCollider bCollider;
+    [SerializeField] private BoxCollider termianlCollider;
 
     [Header("Audio")]
     [SerializeField] private AudioSource waterAudioSource;
@@ -34,6 +35,7 @@ public class WaterRoom : MonoBehaviour
     {
         bCollider = GetComponent<BoxCollider>();
         pm = FindObjectOfType<PauseMenu>();
+        termianlCollider.enabled = true;
     }
 
     private IEnumerator RiseWater()
@@ -76,7 +78,7 @@ public class WaterRoom : MonoBehaviour
         water.SetActive(false);
         door1.IsLocked = false;
         door2.IsLocked = false;
-        door2.Open(transform.position);
+        door1.Open(transform.position);
         autoDoor2.source.PlayOneShot(autoDoor2.doorOpen);
     }
 

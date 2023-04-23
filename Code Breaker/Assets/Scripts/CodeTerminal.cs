@@ -51,8 +51,8 @@ public class CodeTerminal : MonoBehaviour
             TurbineAnimator.SetTrigger("Fix");
             source.Stop();
             source.PlayOneShot(EngineSoundFixed);
-            waterRoom.enabled = true;
-            emergencyLight.enabled = true;
+            waterRoom.gameObject.SetActive(true);
+            emergencyLight.gameObject.SetActive(true);
         }
         else //Wenn der Code nicht richtig ist dann:
         {
