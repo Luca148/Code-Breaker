@@ -53,6 +53,7 @@ public class CodeTerminal : MonoBehaviour
             source.PlayOneShot(EngineSoundFixed);
             waterRoom.gameObject.SetActive(true);
             emergencyLight.gameObject.SetActive(true);
+            ChangeInstruction.Change("Kehre zu deinem Büro zurück");
         }
         else //Wenn der Code nicht richtig ist dann:
         {

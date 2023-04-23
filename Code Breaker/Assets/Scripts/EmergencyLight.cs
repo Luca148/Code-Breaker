@@ -8,6 +8,7 @@ public class EmergencyLight : MonoBehaviour
     [SerializeField] private Material[] stationLightMaterials;
     [SerializeField] private Material[] stationMaterials;
     [SerializeField] private Material[] roomMaterials;
+    [SerializeField] private Door door;
 
     [Header("Colors")]
     [SerializeField] private Color emergencyLightColor;
@@ -92,10 +93,20 @@ public class EmergencyLight : MonoBehaviour
 
     private IEnumerator TriggerEmergencyLight()
     {
-        FindObjectOfType<AudioManager>().PlayAudio("Station_Blackout");
+        door.IsLocked = true;
+        var Audio = FindObjectOfType<AudioManager>();
+        Audio.PlayAudio("Station_Blackout");
+        Audio.PlayAudio("Quill_Scare");
         DisableLights();
         yield return new WaitForSeconds(7);
         EnableEmergencyLight();
+        yield return new WaitForSeconds(.5f);
+        Audio.PlayAudio("Dieter_Blackout");
+        yield return new WaitForSeconds(Audio.ReturnClipLength("Dieter_Blackout"));
+        Audio.PlayAudio("Quill_Blackout");
+        yield return new WaitForSeconds(Audio.ReturnClipLength("Quill_Blackout") + .5f);
+        ChangeInstruction.Change("gehe zu raum r3");
+        door.IsLocked = false;
     }
 
     private void OnTriggerEnter(Collider other)
