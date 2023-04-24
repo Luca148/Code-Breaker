@@ -19,6 +19,8 @@ public class WaterRoom : MonoBehaviour
     private bool startWater = false;
     private BoxCollider bCollider;
     [SerializeField] private BoxCollider termianlCollider;
+    [SerializeField] private BoxCollider powerTermianlCollider;
+    [SerializeField] private GameObject AIVoiceline;
 
     [Header("Audio")]
     [SerializeField] private AudioSource waterAudioSource;
@@ -76,10 +78,6 @@ public class WaterRoom : MonoBehaviour
         waterAudioSource.PlayOneShot(RoomFinish);
         StartCoroutine(EndDialoge());
         water.SetActive(false);
-        door1.IsLocked = false;
-        door2.IsLocked = false;
-        door1.Open(transform.position);
-        autoDoor2.source.PlayOneShot(autoDoor2.doorOpen);
     }
 
     IEnumerator StartDialoge()
@@ -103,6 +101,12 @@ public class WaterRoom : MonoBehaviour
         Audio.PlayAudio("Dieter_Power");
         yield return new WaitForSeconds(Audio.ReturnClipLength("Dieter_Power") + .5f);
         ChangeInstruction.Change("Schalte den Strom an");
+        door1.IsLocked = false;
+        door2.IsLocked = false;
+        door1.Open(transform.position);
+        autoDoor2.source.PlayOneShot(autoDoor2.doorOpen);
+        powerTermianlCollider.enabled = true;
+        AIVoiceline.SetActive(true);
         yield return null;
     }
 

@@ -109,6 +109,20 @@ public class EmergencyLight : MonoBehaviour
         door.IsLocked = false;
     }
 
+    public void EnablePower()
+    {
+        StartCoroutine(TriggerNormalLight());
+    }
+
+    private IEnumerator TriggerNormalLight()
+    {
+        DisableLights();
+        yield return new WaitForSeconds(1);
+        FindObjectOfType<AudioManager>().PlayAudio("Station_PowerOn");
+        DisableEmergencyLight();
+        yield return null;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

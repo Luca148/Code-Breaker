@@ -5,11 +5,12 @@ using UnityEngine;
 public class HackingGameManager : MonoBehaviour
 {
     private Fade fade;
-    private HackingTerminal terminal;
+    [SerializeField] private HackingTerminal terminal;
     [SerializeField] private string LevelName;
 
     private void Start()
     {
+        terminal = null;
         fade = FindObjectOfType<Fade>();
         terminal = FindObjectOfType<HackingTerminal>();
     }
