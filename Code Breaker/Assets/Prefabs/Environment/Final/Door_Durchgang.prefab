@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1379080871052490747}
   - component: {fileID: 4894063765673601501}
   - component: {fileID: 1153846064869135091}
+  - component: {fileID: 2335032910179989735}
   m_Layer: 0
   m_Name: "t\xFCr1"
   m_TagString: Untagged
@@ -106,6 +107,28 @@ MonoBehaviour:
   SlideDirection: {x: 0, y: 1, z: 0}
   SlideAmount: 3.5
   SlideSpeed: 1.8
+--- !u!64 &2335032910179989735
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150731729035359177}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7815216801980310694, guid: ce66b1c5ef8e4694585a7ea23e7d0fb5, type: 3}
 --- !u!1 &8283213166627649481
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,7 +245,7 @@ Transform:
   m_Children:
   - {fileID: 5567667047056234479}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &2447238458900652256
 MonoBehaviour:

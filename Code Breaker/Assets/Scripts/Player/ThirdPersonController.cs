@@ -39,9 +39,15 @@ public class ThirdPersonController : MonoBehaviour
     private void Start()
     {
         P_menu = FindObjectOfType<PauseMenu>();
-        P_menu.thirdPersonController = this;
+        if(P_menu != null)
+        {
+            P_menu.thirdPersonController = this;
+        }
         freeCam = FindObjectOfType<CinemachineFreeLook>();
-        P_menu.cam = freeCam.gameObject;
+        if (P_menu != null)
+        {
+            P_menu.cam = freeCam.gameObject;
+        }
 
         controller = GetComponent<CharacterController>();
         anim = GetComponentInChildren<Animator>();
