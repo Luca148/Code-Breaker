@@ -3,7 +3,12 @@ guid: 12b911bcd6953a041992d21be3e1bb68
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: schrank_mat
+    second: {fileID: 2100000, guid: 5a1439695d82c1542985574b0e187ab2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

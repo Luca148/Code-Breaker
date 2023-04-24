@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class HackingTerminal : MonoBehaviour
 {
-    public UnityEvent Trigger;
+    [SerializeField] private UnityEvent Trigger;
 
     [SerializeField] private string LevelName;
     [SerializeField] private GameObject HackingDevice;
@@ -22,6 +23,7 @@ public class HackingTerminal : MonoBehaviour
     public void StartEndAnim()
     {
         anim.SetTrigger("End");
+        Invoke("FinishedMinigame", 1);
     }
 
     public void FinishedMinigame()
@@ -32,6 +34,7 @@ public class HackingTerminal : MonoBehaviour
         Crosshair.SetActive(true);
 
         Trigger.Invoke();
+        gameObject.SetActive(false);
     }
 
     public void StartMinigame()
