@@ -3,7 +3,12 @@ guid: ac0836311d298d140885fb45775d3b3b
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: fernseher_mat
+    second: {fileID: 2100000, guid: 31864350ab11ceb479d24ba665427a63, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

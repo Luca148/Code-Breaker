@@ -3,7 +3,12 @@ guid: f243a4deb1b538d4e9d8b2dabbde772f
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stuhl_mat
+    second: {fileID: 2100000, guid: fc7e6ac5756c4fc46bdc842c9e5ef560, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
