@@ -14,6 +14,7 @@ public class PauseMenu : MonoBehaviour
 
     [SerializeField] GameObject pauseUI;
     [SerializeField] GameObject optionsUI;
+    [SerializeField] GameObject Instructions;
 
     public bool CantPause = false;
 
@@ -63,6 +64,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;  //resume time
         GameIsPaused = false; //game is not paused
         pauseUI.SetActive(false); //disable ui
+        Instructions.SetActive(true);
 
         if(cam != null)
         {
@@ -94,6 +96,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f; //stop time
         GameIsPaused = true; //game is paused
         pauseUI.SetActive(true); //active pause menu ui
+        Instructions.SetActive(false);
 
         if (cam != null)
         {
@@ -137,6 +140,7 @@ public class PauseMenu : MonoBehaviour
     {
         Cursor.visible = true; //enable cursor
         Time.timeScale = 0f; //stop time
+        Instructions.SetActive(false);
 
         if (cam != null)
         {

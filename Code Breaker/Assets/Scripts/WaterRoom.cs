@@ -18,6 +18,7 @@ public class WaterRoom : MonoBehaviour
     [SerializeField] private float SlideSpeedMultiplier = 5;
     private bool startWater = false;
     private BoxCollider bCollider;
+    [SerializeField] private BoxCollider termianlCollider;
 
     [Header("Audio")]
     [SerializeField] private AudioSource waterAudioSource;
@@ -73,11 +74,36 @@ public class WaterRoom : MonoBehaviour
         }
         waterAudioSource.Stop();
         waterAudioSource.PlayOneShot(RoomFinish);
+        StartCoroutine(EndDialoge());
         water.SetActive(false);
         door1.IsLocked = false;
         door2.IsLocked = false;
-        door2.Open(transform.position);
+        door1.Open(transform.position);
         autoDoor2.source.PlayOneShot(autoDoor2.doorOpen);
+    }
+
+    IEnumerator StartDialoge()
+    {
+        yield return new WaitForSeconds(3); 
+        var Audio = FindObjectOfType<AudioManager>();
+        Audio.PlayAudio("Quill_Water");
+        yield return new WaitForSeconds(Audio.ReturnClipLength("Quill_Water"));
+        Audio.PlayAudio("Dieter_Water");
+        yield return new WaitForSeconds(Audio.ReturnClipLength("Dieter_Water") + .5f);
+        termianlCollider.enabled = true;
+        ChangeInstruction.Change("Benutze das Terminal");
+        yield return new WaitForSeconds(5);
+        Audio.PlayAudio("KI_Water");
+    }
+
+    IEnumerator EndDialoge()
+    {
+        yield return new WaitForSeconds(3);
+        var Audio = FindObjectOfType<AudioManager>();
+        Audio.PlayAudio("Dieter_Power");
+        yield return new WaitForSeconds(Audio.ReturnClipLength("Dieter_Power") + .5f);
+        ChangeInstruction.Change("Schalte den Strom an");
+        yield return null;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -85,11 +111,13 @@ public class WaterRoom : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             StartWater();
+            StartCoroutine(StartDialoge());
         }
     }
 
     public void StopWater()
     {
+        termianlCollider.enabled = false;
         bCollider.enabled = false;
         startWater = false;
         StartCoroutine(LowerWater());
