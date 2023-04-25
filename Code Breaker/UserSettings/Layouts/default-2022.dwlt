@@ -121,7 +121,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 179
+  controlID: 114
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -420,9 +420,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: c6870000
-      m_LastClickedID: 0
-      m_ExpandedIDs: c4faffff
+      m_SelectedIDs: 2aecffff
+      m_LastClickedID: -5078
+      m_ExpandedIDs: 92faffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -889,9 +889,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1863.5402, y: 2, z: -340.01526}
+    m_Target: {x: 1861.211, y: 6.065746, z: -357.49026}
     speed: 2
-    m_Value: {x: 1863.5402, y: 2, z: -340.01526}
+    m_Value: {x: 1861.211, y: 6.065746, z: -357.49026}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -937,13 +937,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.022957629, y: 0.32824162, z: -0.007995623, w: 0.9444098}
+    m_Target: {x: 0.18335561, y: -0.18604374, z: 0.03534058, w: 0.964763}
     speed: 2
-    m_Value: {x: 0.0229668, y: 0.32678485, z: -0.00796021, w: 0.94478613}
+    m_Value: {x: 0.18338567, y: -0.18457349, z: 0.03506116, w: 0.96492124}
   m_Size:
-    m_Target: 3.5151975
+    m_Target: 2.4549477
     speed: 2
-    m_Value: 3.5151975
+    m_Value: 2.5706258
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1144,7 +1144,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Materials_Textures/textures/NicerSchrank
+    - Assets/Materials_Textures/textures/Durchgang
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1160,7 +1160,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: f6cc0000
     m_LastClickedID: 52470
-    m_ExpandedIDs: 000000000c8600000e86000010860000128600001486000016860000188600001a8600001c8600001e86000020860000228600002486000026860000288600002a8600002c860000
+    m_ExpandedIDs: 000000002c8600002e86000030860000328600003486000036860000388600003a8600003c8600003e86000040860000428600004486000046860000488600004a8600004c860000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1185,10 +1185,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 180}
+    scrollPos: {x: 0, y: 480}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff000000000c8600000e86000010860000128600001486000016860000188600001a8600001c8600001e86000020860000228600002486000026860000288600002a8600002c860000
+    m_ExpandedIDs: ffffffff000000002c8600002e86000030860000328600003486000036860000388600003a8600003c8600003e86000040860000428600004486000046860000488600004a86000074880000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
