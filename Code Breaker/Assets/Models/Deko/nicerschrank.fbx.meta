@@ -3,7 +3,12 @@ guid: 0a230c1066ac048439201c860a6f9640
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: nicerschrank_mat
+    second: {fileID: 2100000, guid: 6d658942c4bd8b245ad63d5551fcef42, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

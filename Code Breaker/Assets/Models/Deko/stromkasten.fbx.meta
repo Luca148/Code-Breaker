@@ -3,7 +3,12 @@ guid: bc592d1ff5a64844aad9c151137e027f
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stromkasten_mat
+    second: {fileID: 2100000, guid: 27e1d2f071d37e24ba224857e22724d1, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
