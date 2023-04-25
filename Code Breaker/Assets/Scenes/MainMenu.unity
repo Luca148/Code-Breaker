@@ -734,7 +734,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Options: {fileID: 1091971150}
   Main: {fileID: 1483453785}
-  NextSceneName: Test Scene Luca
+  NextSceneName: Station
   fade: {fileID: 0}
 --- !u!1 &943767745
 GameObject:
