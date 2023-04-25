@@ -6,7 +6,6 @@ public class HackingGameManager : MonoBehaviour
 {
     private Fade fade;
     [SerializeField] private HackingTerminal terminal;
-    [SerializeField] private string LevelName;
 
     private void Start()
     {

@@ -9,9 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: fd2ff627cb9c4df4fb83ec6dfa8e5950
   - enabled: 1
-    path: Assets/Scenes/Test Scene Luca.unity
+    path: Assets/Scenes/Station.unity
     guid: 8124e5870f4fd4c779e7a5f994e84ad1
   - enabled: 1
-    path: Assets/Scenes/Hacking Test 1.unity
+    path: Assets/Scenes/Hacking Level 1.unity
     guid: 75d52328efafefc44b38f09821c15d21
+  - enabled: 1
+    path: Assets/Scenes/Hacking Level 2.unity
+    guid: e8215baae13392f4e82fbfd47e6c2fbe
   m_configObjects: {}

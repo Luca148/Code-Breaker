@@ -5222,7 +5222,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  LevelName: Hacking Test 1
+  LevelName: Hacking Level 1
   HackingDevice: {fileID: 474122961}
   Crosshair: {fileID: 2060527505}
   anim: {fileID: 1932428669}
@@ -33157,7 +33157,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  LevelName: Hacking Test 3
+  LevelName: Hacking Level 2
   HackingDevice: {fileID: 474122961}
   Crosshair: {fileID: 2060527505}
   anim: {fileID: 1932428669}
