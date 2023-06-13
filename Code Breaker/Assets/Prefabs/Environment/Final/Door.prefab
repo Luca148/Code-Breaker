@@ -231,10 +231,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3834147356648884276, guid: ce66b1c5ef8e4694585a7ea23e7d0fb5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ce66b1c5ef8e4694585a7ea23e7d0fb5,
         type: 3}
       propertyPath: m_Name
       value: "t\xFCr"
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ce66b1c5ef8e4694585a7ea23e7d0fb5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8679800679120070547, guid: ce66b1c5ef8e4694585a7ea23e7d0fb5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

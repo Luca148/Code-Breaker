@@ -1,14 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Introduction : MonoBehaviour
 {
+    private bool hideControls = false;
+    public GameObject Controls;
+
+    private PlayerController pc;
 
     private void Start()
     {
-        StartCoroutine(StartIntroduction());
+        pc = FindObjectOfType<PlayerController>();
+        pc.disableInput = true;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && !hideControls)
+        {
+            StartCoroutine(StartIntroduction());
+            hideControls = true;
+            Controls.SetActive(false);
+            pc.disableInput = false;
+        }
     }
 
     IEnumerator StartIntroduction()

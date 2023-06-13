@@ -101,6 +101,7 @@ public class WaterRoom : MonoBehaviour
         Audio.PlayAudio("Dieter_Power");
         yield return new WaitForSeconds(Audio.ReturnClipLength("Dieter_Power") + .5f);
         ChangeInstruction.Change("Schalte den Strom an");
+        SaveManager.SetSaveInt(3);
         door1.IsLocked = false;
         door2.IsLocked = false;
         door1.Open(transform.position);

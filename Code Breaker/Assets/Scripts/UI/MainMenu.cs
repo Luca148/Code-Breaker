@@ -45,4 +45,9 @@ public class MainMenu : MonoBehaviour
     {
         Screen.fullScreen = isFullscreen; //change fullscreen mode with bool of button
     }
+
+    public void ResetGame()
+    {
+        SaveManager.SetSaveInt(0);
+    }
 }

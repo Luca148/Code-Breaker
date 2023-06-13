@@ -42,6 +42,15 @@ public class CodeTerminal : MonoBehaviour
         UpdateUI();
     }
 
+    public void StartEngine()
+    {
+        Checkmark.SetActive(true);
+        TurbineAnimator.SetTrigger("Fix");
+        source.Stop();
+        source.PlayOneShot(EngineSoundFixed);
+        gameObject.SetActive(false);
+    }
+
     public void CheckInput()
     {
         if (codeInput == code) //Wenn der eingegebene Code der gleiche ist wie der des Rätsels dann:
@@ -52,7 +61,8 @@ public class CodeTerminal : MonoBehaviour
             source.Stop();
             source.PlayOneShot(EngineSoundFixed);
             waterRoom.gameObject.SetActive(true);
-            emergencyLight.gameObject.SetActive(true);
+            var box = emergencyLight.GetComponent<BoxCollider>();
+            box.enabled = true;
             ChangeInstruction.Change("Kehre zu deinem Büro zurück");
         }
         else //Wenn der Code nicht richtig ist dann:

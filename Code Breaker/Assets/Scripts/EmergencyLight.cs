@@ -17,8 +17,20 @@ public class EmergencyLight : MonoBehaviour
     [SerializeField] private Color resetMaterialColor;
     [SerializeField] private Color resetRoomColor;
 
+    [Header("Probes")]
+    [SerializeField] private GameObject BlueProbes;
+    [SerializeField] private GameObject PurpleProbes;
+
+    private void OnDisable()
+    {
+        DisableEmergencyLight();
+    }
+
     public void EnableEmergencyLight()
     {
+        PurpleProbes.SetActive(true);
+        BlueProbes.SetActive(false);
+
         for (int i = 0; i < areaLights.Length; i++)
         {
             areaLights[i].color = emergencyLightColor;
@@ -65,6 +77,9 @@ public class EmergencyLight : MonoBehaviour
 
     public void DisableEmergencyLight()
     {
+        PurpleProbes.SetActive(false);
+        BlueProbes.SetActive(true);
+
         for (int i = 0; i < areaLights.Length; i++)
         {
             areaLights[i].color = resetLightColor;
@@ -115,6 +130,7 @@ public class EmergencyLight : MonoBehaviour
         yield return new WaitForSeconds(1);
         FindObjectOfType<AudioManager>().PlayAudio("Station_PowerOn");
         DisableEmergencyLight();
+        ChangeInstruction.ChangeNoSound("");
         yield return null;
     }
 
@@ -123,13 +139,9 @@ public class EmergencyLight : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             StartCoroutine(TriggerEmergencyLight());
+            SaveManager.SetSaveInt(2);
             var box = GetComponent<BoxCollider>();
             box.enabled = false;
         }
-    }
-
-    private void OnDisable()
-    {
-        DisableEmergencyLight();
     }
 }
