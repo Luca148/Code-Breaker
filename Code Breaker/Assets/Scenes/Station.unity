@@ -38724,8 +38724,8 @@ MonoBehaviour:
     changeInstruction: 0
     Instruction: 
   Player: {fileID: 693732818}
-  changeSaveState: 0
-  SaveState: 0
+  changeSaveState: 1
+  SaveState: 2
 --- !u!4 &1826862377
 Transform:
   m_ObjectHideFlags: 0

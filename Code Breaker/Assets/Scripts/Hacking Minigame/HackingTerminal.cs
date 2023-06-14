@@ -46,5 +46,7 @@ public class HackingTerminal : MonoBehaviour
         Crosshair.SetActive(false);
         FindObjectOfType<AudioManager>().PlayAudio("HackGame_Start");
         SceneManager.LoadSceneAsync(LevelName, LoadSceneMode.Additive);
+        var box = GetComponent<BoxCollider>();
+        box.enabled = false;
     }
 }
