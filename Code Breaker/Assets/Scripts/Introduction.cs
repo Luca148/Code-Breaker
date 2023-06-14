@@ -10,11 +10,14 @@ public class Introduction : MonoBehaviour
     public GameObject Controls;
 
     private PlayerController pc;
+    private PauseMenu pauseMenu;
 
     private void Start()
     {
         pc = FindObjectOfType<PlayerController>();
+        pauseMenu = FindObjectOfType<PauseMenu>();
         pc.disableInput = true;
+        pauseMenu.CantPause = true;
     }
 
     private void Update()
@@ -25,6 +28,7 @@ public class Introduction : MonoBehaviour
             hideControls = true;
             Controls.SetActive(false);
             pc.disableInput = false;
+            pauseMenu.CantPause = false;
         }
     }
 

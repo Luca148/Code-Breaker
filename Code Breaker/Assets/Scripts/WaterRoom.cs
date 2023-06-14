@@ -57,7 +57,23 @@ public class WaterRoom : MonoBehaviour
         {
             GameOverUI.SetActive(true);
             pm.FreezeGame();
+            FindObjectOfType<AudioManager>().PlayAudio("Quill_Ertrinken");
         }
+    }
+
+    private IEnumerator DrowSounds()
+    {
+        yield return new WaitForSeconds(51);
+        if (startWater)
+        {
+            FindObjectOfType<AudioManager>().PlayAudio("Quill_Einatmen");
+        }
+        yield return new WaitForSeconds(42);
+        if (startWater)
+        {
+            FindObjectOfType<AudioManager>().PlayAudio("Quill_vorm_Ertrinken");
+        }
+        yield return null;
     }
 
     private IEnumerator LowerWater()
@@ -138,6 +154,7 @@ public class WaterRoom : MonoBehaviour
         water.SetActive(true);
         StartPosition = water.transform.position;
         StartCoroutine(RiseWater());
+        StartCoroutine(DrowSounds());
         var collider = GetComponent<BoxCollider>();
         collider.enabled = false;
     }

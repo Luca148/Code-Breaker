@@ -131,6 +131,8 @@ public class EmergencyLight : MonoBehaviour
         FindObjectOfType<AudioManager>().PlayAudio("Station_PowerOn");
         DisableEmergencyLight();
         ChangeInstruction.ChangeNoSound("");
+        yield return new WaitForSeconds(3f);
+        FindObjectOfType<AudioManager>().PlayAudio("Dieter_Quit");
         yield return null;
     }
 
