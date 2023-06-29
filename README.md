@@ -1,5 +1,10 @@
 ![Alt text](https://i.imgur.com/Mmh7mO7.png)
 
+# WEBSITES
+Project: https://schulzwittjanluca.wixsite.com/jan-luca-schulz-witt/code-breaker
+
+Itchi.io: https://luca149.itch.io/code-breaker
+
 # VISION STATEMENT
 Take on the role of Quill, a mechanic in the research team of Fenix. You work there on a superintelligent AI that one day takes control of the Fenix. The AI locks up all the crew members. Escaping seems hopeless. Your boss Dieter, the leading scientist of your crew, contacts you via radio and reports the problem. Dieter grants you access to a program that allows you to hack into the space station. The mission is to make your way to the cockpit to manually eliminate the AI. But there are dangers and obstacles awaiting you... The AI locks doors along your path, repeatedly traps you, and floods rooms with water. Thanks to the hack on your tablet, you can dive into the digital world of Fenix and clear your path. With skill and wit, you make progress. The AI will constantly throw insults at you, but don't let that distract you!
 # KEY FEATURES
